@@ -38,7 +38,7 @@ const showDigitalClock = () =>  {
         m = date.getMinutes(),
         ampm,
         day = date.getDate(),
-        month = date.toLocaleString('us-en', {month: 'short'}),
+        month = date.toLocaleString('us-en', {month: 'short'}), //Vem com o mês formato
         year = date.getFullYear();
  
         // Verificaçao do PM e AM
@@ -60,9 +60,7 @@ const showDigitalClock = () =>  {
 
     textDay.innerHTML = day;
     textMonth.innerHTML = month;
-    textYear.innerHTML = year;
-
-    
+    textYear.innerHTML = year;  
         
 }
 setInterval(showDigitalClock, 1000);
