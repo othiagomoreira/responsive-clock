@@ -49,3 +49,190 @@ body.dark-theme {
   --text-color: hsl(var(--hue-color), 12%, 75%);
   --body-color: hsl(var(--hue-color), 10%, 16%);
 }
+
+
+/* ======================= All ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ======================= Reusable Css Classes ===================== */
+.container {
+    max-width: 968px;
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+}
+
+.grid {
+    display: grid;
+}
+
+/* ======================= Clock ===================== */
+.clock-container {
+    height: 100vh;
+    grid-template-rows: 1fr max-content;
+}
+
+.clock-circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    /* Efeito que da o formato do relógio */
+    box-shadow: -6px -6px 16px var(--white-color),
+                6px 6px 16px hsla(var(--hue-color), 30%, 86%, 1),
+                inset 6px 66px 16px hsl(var(--hue-color), 30%, 86%, 1),
+                inset -6px -6px 16px var(--white-color);
+    border-radius: 50%;
+    justify-self: center;
+
+    /* Posiciona os ponteiros que repesenta os numeros */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock-content {
+    align-self: center;
+    row-gap: 3.5rem;
+}
+
+/* Ponteiros fixos que representam as horas 12-3-6-9 */
+.clock-twelve,
+.clock-three,
+.clock-six,
+.clock-nine {
+    position: absolute;
+    width: 15px;
+    height: 2px;
+    background-color: var(--text-color-light);
+}
+
+/* Pomteiros de 12 e 6 horas, rotaciona eles para que fiquem em "pé"  */
+.clock-twelve,
+.clock-six {
+    transform: translateX(-50%) rotate(90deg);
+}
+
+.clock-twelve {
+    top: 1rem;
+    left: 50%;
+}
+
+.clock-six {
+    bottom: 1rem;
+    left: 50%;
+}
+
+.clock-three {
+    top: 50%;
+    right: .3rem;
+}
+
+.clock-nine {
+    top: 50%;
+    left: .3rem;
+}
+
+.clock-rounder {
+    width: 10px;
+    height: 10px;
+    background-color: var(--first-color);
+    border-radius: 50%;
+    border: 2px solid var(--body-color);
+    z-index: var(--z-tooltip);
+}
+
+.clock-hours,
+.clock-minutes,
+.clock-seconds {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    
+    display: flex;
+    justify-content: center;
+}
+
+.clock-hours {
+    width: 105px;
+    height: 105px;
+}
+
+.clock-hours::before {
+    content: "";
+    position: absolute;
+    background-color: var(--text-color);
+    width: 4px;
+    height: 48px;
+    border-radius: .75rem;
+    z-index: var(--z-normal);
+}
+
+.clock-minutes {
+    width: 136px;
+    height: 136px;
+}
+
+.clock-minutes::before {
+    content: "";
+    position: absolute;
+    background-color: var(--text-color);
+    width: 4px;
+    height: 70px;
+    border-radius: .75rem;
+    z-index: var(--z-normal);
+}
+
+.clock-seconds {
+    width: 130px;
+    height: 130px;
+}
+
+.clock-seconds::before {
+    content: "";
+    position: absolute;
+    background-color: var(--first-color);
+    width: .125rem;
+    height: 80px;
+    border-radius: .75rem;
+    z-index: var(--z-normal);
+}
+
+.clock-text {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.clock-text-hours,
+.clock-text-minutes {
+    font-size: var(--biggest-font-size);
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+.clock-text-ampm {
+    font-size: var(--tiny-font-size);
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+    margin-left: var(--mb-0-25);
+}
+
+.clock-date {
+    text-align: center;
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+}
+/* ======================= Media Queries ===================== */
