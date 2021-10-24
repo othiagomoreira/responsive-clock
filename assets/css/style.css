@@ -70,21 +70,19 @@ a {
 
 /* ======================= Reusable Css Classes ===================== */
 .container {
-    max-width: 968px;
-    margin-left: var(--mb-1);
-    margin-right: var(--mb-1);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
 
-.grid {
-    display: grid;
-}
 
 /* ======================= Clock ===================== */
-.clock-container {
+.clock {
     height: 100vh;
-    grid-template-rows: 1fr max-content;
 }
-
 .clock-circle {
     position: relative;
     width: 200px;
@@ -95,17 +93,11 @@ a {
                 inset 6px 66px 16px hsl(var(--hue-color), 30%, 86%, 1),
                 inset -6px -6px 16px var(--white-color);
     border-radius: 50%;
-    justify-self: center;
-
+   
     /* Posiciona os ponteiros que repesenta os numeros */
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.clock-content {
-    align-self: center;
-    row-gap: 3.5rem;
 }
 
 /* Ponteiros fixos que representam as horas 12-3-6-9 */
@@ -119,7 +111,7 @@ a {
     background-color: var(--text-color-light);
 }
 
-/* Pomteiros de 12 e 6 horas, rotaciona eles para que fiquem em "pé"  */
+/* Pomteiros de 12 e 6 horas, rotaciona eles para que fiquem na vertical */
 .clock-twelve,
 .clock-six {
     transform: translateX(-50%) rotate(90deg);
@@ -145,22 +137,21 @@ a {
     left: .3rem;
 }
 
-.clock-rounder {
+.clock-rounder { /* "Bolinha" do meio do relógio */
     width: 10px;
     height: 10px;
     background-color: var(--first-color);
     border-radius: 50%;
-    border: 2px solid var(--body-color);
+    border: 2px solid var(--body-color);/*Efeito dos ponteiros não encostarem na bolinha*/
     z-index: var(--z-tooltip);
 }
 
+/* Posiona eles ao centro do relógio */
 .clock-hours,
 .clock-minutes,
 .clock-seconds {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    
+   
     display: flex;
     justify-content: center;
 }
@@ -213,7 +204,6 @@ a {
 .clock-text {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
 }
 
 .clock-text-hours,

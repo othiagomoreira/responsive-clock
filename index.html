@@ -15,28 +15,23 @@
 </head>
 
 <body>
-    <section class="clock container">
-        <div class="clock-container grid">
-            <div class="clock-content grid">
-                <div class="clock-circle">
-                    <!-- Circulo do relógio -->
+    <section class="container">
+        <!-- Circulo do relógio -->
+        <div class="clock-circle">
+            <!-- Representa os 4 pontos principais 12-3-6-9 -->
+            <span class="clock-twelve"></span> <!-- Doze horas -->
+            <span class="clock-three"></span> <!-- Tres horas -->
+            <span class="clock-six"></span> <!-- Seis horas -->
+            <span class="clock-nine"></span> <!-- Nove horas -->
 
-                    <!-- Representa os 4 pontos principais 12-3-6-9 -->
-                    <span class="clock-twelve"></span> <!-- Doze horas -->
-                    <span class="clock-three"></span> <!-- Tres horas -->
-                    <span class="clock-six"></span> <!-- Seis horas -->
-                    <span class="clock-nine"></span> <!-- Nove horas -->
-
-                    <!-- Ponteiros -->
-                    <div class="clock-rounder"></div> <!-- Bolinha do meio -->
-                    <div class="clock-hours" id="clock-hours"></div>
-                    <div class="clock-minutes" id="clock-minutes"></div>
-                    <div class="clock-seconds" id="clock-seconds"></div>
-                </div>
-            </div>
+            <!-- Ponteiros -->
+            <div class="clock-rounder"></div> <!-- Bolinha do meio -->
+            <div class="clock-hours" id="clock-hours"></div>
+            <div class="clock-minutes" id="clock-minutes"></div>
+            <div class="clock-seconds" id="clock-seconds"></div>
         </div>
 
-        <div>
+        <div class="clock-digital">
             <!-- Exibi as horas em forma em formato digital(sem ponteiros) -->
             <div class="clock-text">
                 <div class="clock-text-hours" id="text-hours">4</div>
