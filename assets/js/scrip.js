@@ -64,3 +64,39 @@ const showDigitalClock = () =>  {
         
 }
 setInterval(showDigitalClock, 1000);
+
+
+/*==================== DARK/LIGHT THEME ====================*/
+const themeButton = document.getElementById('theme-button'); //icone que alterna entre dark/light
+const darkTheme = 'dark-theme' ;
+const iconTheme = 'bxs-sun' ;
+
+// Tópico selecionado anteriormente (se o usuário selecionou)
+const selectedTheme = localStorage.getItem('selected-theme');
+const selectedIcon = localStorage.getItem('selected-icon');
+
+
+// Nós obtemos o tema atual que a interface possui validando a classe dark-theme
+// O método contains() é usado para determinar se a coleção contém um determinado item ou não. Se ele contiver o item, ele retornará true, caso contrário, será false.
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light';
+const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'bxs-moon' : 'bxs-sun';
+
+// valição se o usuário escolheu previamente um tópico
+if (selectedTheme) {
+  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
+  themeButton.classList[selectedIcon === 'bxs-moon' ? 'add' : 'remove'](iconTheme);
+};
+
+// Ativar / desativar o tema manualmente com o botão
+themeButton.addEventListener('click', () => {
+    // Adicionar ou remover o tema escuro / ícone
+    document.body.classList.toggle(darkTheme); //togle(), se existir a class remove se não adiciona
+    themeButton.classList.toggle(iconTheme); //togle(), se existir a class remove se não adiciona
+
+    // Salvamos o tema e o ícone atual escolhido pelo usuário
+    localStorage.setItem('selected-theme', getCurrentTheme());
+    localStorage.setItem('selected-icon', getCurrentIcon());
+});
+
+   

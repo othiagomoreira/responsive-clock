@@ -4,7 +4,7 @@
 /*=============== VARIABLES CSS ===============*/
 :root {
   /*========== Colors ==========*/
-  --hue-color: 240;
+  --hue-color: 150;
 
   --first-color: hsl(var(--hue-color), 53%, 49%);
   --title-color: hsl(var(--hue-color), 53%, 15%);
@@ -49,6 +49,36 @@ body.dark-theme {
   --text-color: hsl(var(--hue-color), 12%, 75%);
   --body-color: hsl(var(--hue-color), 10%, 16%);
 }
+
+/* ======================= Button Dark/light ===================== */
+.clock-theme {
+    position: absolute; /* Absoluta em relação ao elemento pai(circle) */
+    top: -3rem;
+    right: -2rem;
+    
+    display: flex;
+    padding: .5rem;
+    box-shadow: inset -1px -1px 1px hsla(var(--hue-color), 0%, 100%, 1), 
+    inset 1px 1px 1px hsla(var(--hue-color), 30%, 86%, 1);
+    border-radius: 50%;
+    color: var(--first-color);
+    cursor: pointer;
+
+}
+
+/*========== Box shadow Dark theme ==========*/
+.dark-theme .clock-circle {
+    box-shadow: 6px 6px 16px hsla(var(--hue-color), 8%, 12%, 1), 
+                -6px -6px 16px hsla(var(--hue-color), 8%, 20%, 1), 
+                inset -6px -6px 16px hsla(var(--hue-color), 8%, 20%, 1), 
+                inset 6px 6px 12px hsla(var(--hue-color), 8%, 12%, 1);
+}
+  
+.dark-theme .clock-theme {
+    box-shadow: inset -1px -1px 1px hsla(var(--hue-color), 8%, 20%, 1), 
+                inset 1px 1px 1px hsla(var(--hue-color), 8%, 12%, 1);
+}
+
 
 
 /* ======================= All ===================== */
@@ -225,4 +255,7 @@ a {
     font-size: var(--small-font-size);
     font-weight: var(--font-medium);
 }
+
+
+
 /* ======================= Media Queries ===================== */
